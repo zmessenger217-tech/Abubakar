@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "Wish": {
+      "title": "Wish",
+      "description": "Birthday wish submitted by family and friends for Abubakr",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "relation": { "type": "string", "maxLength": 100 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "badge": { "type": "string", "maxLength": 50 },
+        "audioDataUrl": { "type": "string", "maxLength": 500000 },
+        "hasAudio": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "message", "relation"]
+    },
+    "BirthdayCard": {
+      "title": "BirthdayCard",
+      "description": "Custom celebration card created for Abubakr",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderName": { "type": "string", "maxLength": 100 },
+        "relation": { "type": "string", "maxLength": 100 },
+        "roleBadge": { "type": "string", "maxLength": 50 },
+        "title": { "type": "string", "maxLength": 150 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "dua": { "type": "string", "maxLength": 1000 },
+        "photoUrl": { "type": "string", "maxLength": 500000 },
+        "photoCaption": { "type": "string", "maxLength": 150 },
+        "theme": { "type": "string", "enum": ["gold", "rose", "blue", "emerald", "purple", "yellow"] },
+        "likes": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["senderName", "relation", "title", "message", "photoUrl"]
+    },
+    "MemoryPicture": {
+      "title": "MemoryPicture",
+      "description": "Photo and memory added to Abubakr's celebration gallery",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "url": { "type": "string", "maxLength": 500000 },
+        "title": { "type": "string", "maxLength": 150 },
+        "subtitle": { "type": "string", "maxLength": 150 },
+        "tag": { "type": "string", "maxLength": 50 },
+        "tagLabel": { "type": "string", "maxLength": 50 },
+        "location": { "type": "string", "maxLength": 100 },
+        "date": { "type": "string", "maxLength": 100 },
+        "note": { "type": "string", "maxLength": 1500 },
+        "contributor": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["url", "title", "note"]
+    }
+  },
+  "firestore": {
+    "/wishes/{wishId}": {
+      "schema": "Wish",
+      "description": "Collection of birthday wishes and voice messages for Abubakr"
+    },
+    "/birthday_cards/{cardId}": {
+      "schema": "BirthdayCard",
+      "description": "Collection of celebration cards from cousins, sister, and relatives"
+    },
+    "/memory_pictures/{pictureId}": {
+      "schema": "MemoryPicture",
+      "description": "Collection of memory pictures in Abubakr's photo album"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Happy Birthday Abubakr | Birthday Celebration",
+  "description": "An extraordinary birthday celebration website for dear Abubakr, featuring festive music, memories gallery, interactive cake cutting, fireworks, and shareable greeting cards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
